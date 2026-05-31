@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natalie Olofsson — Journalist &amp; Writer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">Natalie Olofsson</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#viz">Visualizations</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-menu-btn" aria-label="Open menu" id="menuBtn">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+    <ul>
+      <li><a href="#work" class="mobile-link">Work</a></li>
+      <li><a href="#viz" class="mobile-link">Visualizations</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-inner">
+      <div class="intro-left reveal">
+        <div class="intro-photo-wrap">
+          <div class="intro-photo" style="background-image:url('images/portrait.jpg');"></div>
+        </div>
+        <h1 class="intro-name">Natalie<br />Olofsson</h1>
+        <p class="intro-role">Journalist &amp; Technical Communicator in Climate Modelling</p>
+      </div>
+      <div class="intro-right reveal">
+        <p class="intro-bio">I'm a journalist and technical communicator currently working in the climate and catastrophe modelling sector to visualize and discuss climate trends. My experience in journalism spans financial journalism, investigations, and data journalism across the UK and US.</p>
+        <p class="intro-bio">I'm keen to contribute to editorial work, particularly when it regards investigating climate, economic, or demographic data.</p>
+        <div class="intro-pubs">
+          <span>CNBC</span>
+          <span aria-hidden="true">·</span>
+          <span>Quiver Quantitative</span>
+          <span aria-hidden="true">·</span>
+          <span>The National</span>
+          <span aria-hidden="true">·</span>
+          <span>The Courier</span>
+          <span aria-hidden="true">·</span>
+          <span>Women's Media Center</span>
+          <span aria-hidden="true">·</span>
+          <span>Peacock TV</span>
+          <span aria-hidden="true">·</span>
+          <span>Nasdaq</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section class="featured" id="work">
+    <div class="featured-inner">
+      <h2 class="featured-label reveal">Selected Work</h2>
+
+      <div class="featured-grid">
+
+        <article class="feat reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/Inside+the+Financial+Profiles+of+Trump%27s+Cabinet+Members" target="_blank" rel="noopener" class="feat-link">
+            <div class="feat-body">
+              <span class="feat-tag">Analysis</span>
+              <div class="feat-pub">Quiver Quantitative · Feb 2025</div>
+              <h3 class="feat-title">Inside the Financial Profiles of Trump's Cabinet Members, Worth Almost $12 Billion</h3>
+              <p class="feat-desc">Trump's cabinet nominees hold a combined net worth of ~$11.8 billion, with nearly half holding significant crypto investments — raising sharp questions about conflicts of interest.</p>
+              <span class="feat-read">Read →</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="feat reveal" data-category="news">
+          <a href="https://www.thenational.scot/news/trade-unions/23506875.strikes-st-andrews-staff-students-discuss-ongoing-pay-dispute/" target="_blank" rel="noopener" class="feat-link">
+            <div class="feat-body">
+              <span class="feat-tag">News</span>
+              <div class="feat-pub">The National · 2023</div>
+              <h3 class="feat-title">Strikes at St Andrews: Staff and Students Discuss Ongoing Pay Dispute</h3>
+              <p class="feat-desc">Reporting from the picket lines as university staff and students weigh in on ongoing industrial action over pay.</p>
+              <span class="feat-read">Read →</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="feat reveal" data-category="feature">
+          <a href="https://passthemicscotland.org/pass-the-mic-articles-in-press/" target="_blank" rel="noopener" class="feat-link">
+            <div class="feat-body">
+              <span class="feat-tag">Feature</span>
+              <div class="feat-pub">The Courier · 2025</div>
+              <h3 class="feat-title">Left to Rot? Why Rising Temperatures Waste Berry Blooms</h3>
+              <p class="feat-desc">How climate-driven heat is disrupting Scottish soft fruit harvests — blooms arrive before pollinators, and warm winters confuse the crops that Scotland's growers depend on.</p>
+              <span class="feat-read">Read →</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="feat reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/DJT+Maintains+Record-Breaking+Volatility+Post-Election" target="_blank" rel="noopener" class="feat-link">
+            <div class="feat-body">
+              <span class="feat-tag">Analysis</span>
+              <div class="feat-pub">Quiver Quantitative · Nov 2024</div>
+              <h3 class="feat-title">DJT Maintains Record-Breaking Volatility Post-Election</h3>
+              <p class="feat-desc">Trump Media stock surged, crashed, and triggered two trading halts on Election Day — ending flat while every other Trump-aligned asset rallied.</p>
+              <span class="feat-read">Read →</span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL ARCHIVE -->
+  <section class="archive">
+    <div class="archive-inner">
+
+      <div class="archive-header reveal">
+        <h2 class="archive-title">All Writing</h2>
+        <div class="archive-filters" role="tablist" aria-label="Filter by category">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="analysis" role="tab" aria-selected="false">Analysis</button>
+          <button class="filter-btn" data-filter="news" role="tab" aria-selected="false">News</button>
+          <button class="filter-btn" data-filter="feature" role="tab" aria-selected="false">Features</button>
+          <button class="filter-btn" data-filter="interview" role="tab" aria-selected="false">Interviews</button>
+          <button class="filter-btn" data-filter="podcast" role="tab" aria-selected="false">Podcast</button>
+          <button class="filter-btn" data-filter="award" role="tab" aria-selected="false">Awards</button>
+        </div>
+      </div>
+
+      <ul class="archive-list" id="archiveList">
+
+        <!-- 2025 -->
+        <li class="archive-item reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/Inside+the+Financial+Profiles+of+Trump%27s+Cabinet+Members" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Analysis</span>
+            <span class="archive-title-text">Inside the Financial Profiles of Trump's Cabinet Members, Worth Almost $12 Billion</span>
+            <span class="archive-pub">Quiver Quantitative</span>
+            <span class="archive-year">2025</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/Genetic+Testing+Giant+23andMe+Files+for+Bankruptcy,+Putting+Personal+Data+at+Risk" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Analysis</span>
+            <span class="archive-title-text">Genetic Testing Giant 23andMe Files for Bankruptcy, Putting Personal Data at Risk</span>
+            <span class="archive-pub">Quiver Quantitative</span>
+            <span class="archive-year">2025</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/Tesla+Q1+earnings+disappoint:+Musk+to+spend+significantly+less+time+at+DOGE" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Analysis</span>
+            <span class="archive-title-text">Tesla Q1 Earnings Disappoint: Musk to Spend Significantly Less Time at DOGE</span>
+            <span class="archive-pub">Quiver Quantitative</span>
+            <span class="archive-year">2025</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/Tesla%E2%80%99s+EV+Sales+Struggle+Amidst+Tariff+Battles+and+Musk+Controversy" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Analysis</span>
+            <span class="archive-title-text">Tesla's EV Sales Struggle Amidst Tariff Battles and Musk Controversy</span>
+            <span class="archive-pub">Quiver Quantitative</span>
+            <span class="archive-year">2025</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="feature">
+          <a href="https://passthemicscotland.org/pass-the-mic-articles-in-press/" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Feature</span>
+            <span class="archive-title-text">Left to Rot? Why Rising Temperatures Waste Berry Blooms</span>
+            <span class="archive-pub">The Courier</span>
+            <span class="archive-year">2025</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <!-- 2024 -->
+        <li class="archive-item reveal" data-category="feature">
+          <a href="https://www.cnbc.com/cnbc-disruptors/" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Feature</span>
+            <span class="archive-title-text">CNBC Disruptors 50 (Contributing Writer and Coordinator)</span>
+            <span class="archive-pub">CNBC</span>
+            <span class="archive-year">2024</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="feature">
+          <a href="https://www.cnbc.com/2024/11/20/cnbcs-cities-of-success-travels-to-salt-lake-city.html" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Feature</span>
+            <span class="archive-title-text">Cities of Success: Salt Lake City (Contributing Writer)</span>
+            <span class="archive-pub">CNBC</span>
+            <span class="archive-year">2024</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/DJT+Maintains+Record-Breaking+Volatility+Post-Election" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Analysis</span>
+            <span class="archive-title-text">DJT Maintains Record-Breaking Volatility Post-Election</span>
+            <span class="archive-pub">Quiver Quantitative</span>
+            <span class="archive-year">2024</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/SMCI+Stock+Rebounds,+as+Accounting+Fraud+Allegations+Waver+this+Month" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Analysis</span>
+            <span class="archive-title-text">SMCI Stock Rebounds, as Accounting Fraud Allegations Waver</span>
+            <span class="archive-pub">Quiver Quantitative</span>
+            <span class="archive-year">2024</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="analysis">
+          <a href="https://www.quiverquant.com/news/Trump%27s+Media+Company+is+Launching+a+Fintech+Platform" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Analysis</span>
+            <span class="archive-title-text">Trump's Media Company is Launching a Fintech Platform</span>
+            <span class="archive-pub">Quiver Quantitative</span>
+            <span class="archive-year">2024</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="podcast">
+          <a href="https://feeds.acast.com/public/shows/saint-speaks" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Podcast</span>
+            <span class="archive-title-text">Saint Speaks — Producer &amp; Editor</span>
+            <span class="archive-pub">The Saint Newspaper</span>
+            <span class="archive-year">2023–24</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <!-- 2023 -->
+        <li class="archive-item reveal" data-category="news">
+          <a href="https://www.thenational.scot/news/trade-unions/23506875.strikes-st-andrews-staff-students-discuss-ongoing-pay-dispute/" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">News</span>
+            <span class="archive-title-text">Strikes at St Andrews: Staff and Students Discuss Ongoing Pay Dispute</span>
+            <span class="archive-pub">The National</span>
+            <span class="archive-year">2023</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="interview">
+          <a href="https://womensmediacenter.com/fbomb/a-q-a-with-sustainability-activist-sharona-shnayder" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Interview</span>
+            <span class="archive-title-text">A Q&amp;A With Sustainability Activist Sharona Shnayder</span>
+            <span class="archive-pub">Women's Media Center</span>
+            <span class="archive-year">2023</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="feature">
+          <a href="https://womensmediacenter.com/fbomb/period-products-are-free-in-scotland-will-they-ever-be-in-the-us" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Feature</span>
+            <span class="archive-title-text">Period Products Are Free in Scotland — Will They Ever Be in the US?</span>
+            <span class="archive-pub">Women's Media Center</span>
+            <span class="archive-year">2023</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="feature">
+          <a href="https://womensmediacenter.com/fbomb/female-bartenders-still-struggle-to-overcome-sexism-at-work" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Feature</span>
+            <span class="archive-title-text">Female Bartenders Still Struggle to Overcome Sexism at Work</span>
+            <span class="archive-pub">Women's Media Center</span>
+            <span class="archive-year">2023</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="feature">
+          <a href="https://www.thesaintnewspaper.co.uk/post/punch-drunk-forgoing-my-ufc-subscription" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Feature</span>
+            <span class="archive-title-text">Punch Drunk: Forgoing My UFC Subscription</span>
+            <span class="archive-pub">The Saint</span>
+            <span class="archive-year">2023</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="feature">
+          <a href="https://www.thesaintnewspaper.co.uk/post/fife-weather-enthusiast-on-the-st-andrews-microclimate" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Feature</span>
+            <span class="archive-title-text">Fife Weather Enthusiast on the St Andrews Microclimate</span>
+            <span class="archive-pub">The Saint</span>
+            <span class="archive-year">2023</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+        <li class="archive-item reveal" data-category="award">
+          <a href="https://www.spajournalism.com/post/spanc23-national-awards-shortlists-announced" target="_blank" rel="noopener" class="archive-row">
+            <span class="archive-cat">Award</span>
+            <span class="archive-title-text">SPANC23 National Awards — Shortlisted</span>
+            <span class="archive-pub">Student Publication Association</span>
+            <span class="archive-year">2023</span>
+            <span class="archive-arrow">↗</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- VISUALIZATIONS -->
+  <section class="viz" id="viz">
+    <div class="viz-inner">
+      <div class="viz-header reveal">
+        <h2 class="viz-title">Data Visualizations</h2>
+        <p class="viz-sub">Selected charts and maps from my investigations and reporting.</p>
+      </div>
+
+      <div class="viz-grid">
+
+        <figure class="viz-item reveal">
+          <a href="images/viz-1.png" class="viz-item-link" target="_blank" rel="noopener">
+            <div class="viz-img-wrap">
+              <img src="images/viz-1.png" alt="London Borough Elections 2026 choropleth map showing party control" class="viz-img" />
+              <div class="viz-overlay"><span class="viz-overlay-text">View ↗</span></div>
+            </div>
+            <figcaption class="viz-caption">
+              <span class="viz-cap-title">London Borough Elections 2026</span>
+              <span class="viz-cap-tool">Party control by borough — choropleth</span>
+            </figcaption>
+          </a>
+        </figure>
+
+        <figure class="viz-item reveal">
+          <a href="images/viz-2.png" class="viz-item-link" target="_blank" rel="noopener">
+            <div class="viz-img-wrap">
+              <img src="images/viz-2.png" alt="US county-level home insurance non-renewal rate map, Southeast US" class="viz-img" />
+              <div class="viz-overlay"><span class="viz-overlay-text">View ↗</span></div>
+            </div>
+            <figcaption class="viz-caption">
+              <span class="viz-cap-title">The Insurance Retreat — County Non-Renewal Rates</span>
+              <span class="viz-cap-tool">NAIC/DOI data · county-level choropleth</span>
+            </figcaption>
+          </a>
+        </figure>
+
+        <figure class="viz-item reveal">
+          <a href="images/viz-3.png" class="viz-item-link" target="_blank" rel="noopener">
+            <div class="viz-img-wrap">
+              <img src="images/viz-3.png" alt="DJT intraday price chart on Election Day 2024 with trading halt annotations" class="viz-img" />
+              <div class="viz-overlay"><span class="viz-overlay-text">View ↗</span></div>
+            </div>
+            <figcaption class="viz-caption">
+              <span class="viz-cap-title">DJT Election Day Volatility — Two Trading Halts</span>
+              <span class="viz-cap-tool">Annotated intraday line chart · Quiver Quantitative</span>
+            </figcaption>
+          </a>
+        </figure>
+
+        <figure class="viz-item reveal">
+          <a href="images/viz-4.png" class="viz-item-link" target="_blank" rel="noopener">
+            <div class="viz-img-wrap">
+              <img src="images/viz-4.png" alt="Horizontal bar chart of home insurance non-renewal rates by state, 2023" class="viz-img" />
+              <div class="viz-overlay"><span class="viz-overlay-text">View ↗</span></div>
+            </div>
+            <figcaption class="viz-caption">
+              <span class="viz-cap-title">The States Being Left Behind by Insurers</span>
+              <span class="viz-cap-tool">State non-renewal rates · NAIC/DOI 2023</span>
+            </figcaption>
+          </a>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img-col reveal">
+        <div class="about-img-wrap">
+          <div class="about-img" style="background-image:url('images/portrait.jpg');"></div>
+        </div>
+      </div>
+      <div class="about-text-col reveal">
+        <span class="about-label">About</span>
+        <h2 class="about-heading">Hi, I'm Natalie.</h2>
+        <div class="about-body">
+          <p>I'm a journalist and technical communicator currently working in the climate and catastrophe modelling sector to visualize and discuss climate trends. My experience in journalism spans financial journalism, investigations, and data journalism across the UK and US.</p>
+          <p>Currently based in London. I hold an MA in Economics from the University of St Andrews.</p>
+        </div>
+        <a href="#contact" class="about-cta">Get in touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner reveal">
+      <h2 class="contact-heading">Get in touch</h2>
+      <a href="mailto:natolofsson@gmail.com" class="contact-email">natolofsson@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 Natalie Olofsson</span>
+    <a href="#" class="footer-top">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
