@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DJT Election Day Volatility — Quiver Quantitative</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Barlow+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#090909; --bg2:#111; --bg3:#1a1a1a;
+  --ink:#EDE8DF; --ink2:#9A9490; --ink3:#625C58;
+  --red:#CC2828; --red-lt:#E03030; --red-dim:rgba(204,40,40,.12);
+  --green:#3A8A3A; --amber:#C07A20;
+  --border:rgba(237,232,223,.08);
+  --mono:'IBM Plex Mono',monospace;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'Barlow Condensed',system-ui,sans-serif;
+}
+html{font-size:15px}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.6;min-height:100vh;padding:0 0 60px}
+
+/* Header */
+.header{padding:52px 48px 36px;max-width:900px}
+.kicker{font-family:var(--mono);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.kicker::after{content:'';flex:1;max-width:48px;height:1px;background:var(--red);opacity:.4}
+.hed{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:300;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+.hed em{font-style:italic;color:var(--red)}
+.dek{font-size:.93rem;color:var(--ink2);max-width:580px;line-height:1.7;margin-bottom:28px}
+
+/* Stat strip */
+.stats{display:flex;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 48px 40px;max-width:800px}
+.stat{padding:18px 28px;border-right:1px solid var(--border);flex:1}
+.stat:last-child{border-right:none}
+.stat-num{font-family:var(--mono);font-size:1.6rem;font-weight:400;line-height:1;margin-bottom:5px}
+.stat-num.up{color:var(--green)}
+.stat-num.down{color:var(--red)}
+.stat-num.neutral{color:var(--amber)}
+.stat-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+
+/* Chart */
+.chart-wrap{padding:0 48px;max-width:900px}
+.chart-title{font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.chart-title::before{content:'';width:14px;height:1px;background:var(--red)}
+.chart-box{position:relative;background:var(--bg2);border:1px solid var(--border);padding:24px 24px 16px;border-radius:2px}
+canvas{display:block;width:100%!important}
+
+/* Annotations */
+.annotations{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:2px;overflow:hidden}
+.ann{background:var(--bg2);padding:14px 16px}
+.ann-time{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:4px}
+.ann-event{font-size:.78rem;color:var(--ink);line-height:1.4}
+.ann-change{font-family:var(--mono);font-size:.8rem;font-weight:500;margin-top:4px}
+.ann-change.up{color:var(--green)}
+.ann-change.down{color:var(--red)}
+
+/* Source */
+.source{padding:24px 48px 0;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--ink3)}
+.source a{color:var(--red);text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="kicker">Election Day · 5 November 2024</div>
+  <h1 class="hed">DJT Maintains <em>Record-Breaking</em><br>Volatility Post-Election</h1>
+  <p class="dek">Trump Media & Technology Group stock surged, crashed, and triggered two trading halts on Election Day — ending flat while every other Trump-aligned asset rallied. An intraday reconstruction.</p>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num up">+5.9%</div>
+    <div class="stat-label">Morning surge</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num down">−20%+</div>
+    <div class="stat-label">Peak-to-trough</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num down">−1%</div>
+    <div class="stat-label">Day's close</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num up">+10%</div>
+    <div class="stat-label">After-hours</div>
+  </div>
+</div>
+
+<div class="chart-wrap">
+  <div class="chart-title">DJT intraday price index · Election Day 2024 · pre-market = 100</div>
+  <div class="chart-box">
+    <canvas id="chart" height="320"></canvas>
+  </div>
+
+  <div class="annotations">
+    <div class="ann">
+      <div class="ann-time">09:30 – 10:15 AM</div>
+      <div class="ann-event">Market opens. DJT surges on early optimism as Trump odds rise on prediction markets.</div>
+      <div class="ann-change up">↑ +5.9%</div>
+    </div>
+    <div class="ann">
+      <div class="ann-time">11:00 AM – 12:30 PM</div>
+      <div class="ann-event">Sentiment reverses. Two circuit-breaker trading halts triggered as sell-off accelerates.</div>
+      <div class="ann-change down">↓ −20%+ from high</div>
+    </div>
+    <div class="ann">
+      <div class="ann-time">4:00 PM Close</div>
+      <div class="ann-event">Stock closes essentially flat — down 1% — while Tesla, Palantir, and Interactive Brokers all climb.</div>
+      <div class="ann-change down">↓ −1% vs. open</div>
+    </div>
+    <div class="ann">
+      <div class="ann-time">After-hours</div>
+      <div class="ann-event">Trump's election confirmed. DJT rebounds sharply in after-hours trading as sentiment shifts.</div>
+      <div class="ann-change up">↑ +10%</div>
+    </div>
+  </div>
+</div>
+
+<div class="source">
+  Source: <a href="https://www.quiverquant.com/news/DJT+Maintains+Record-Breaking+Volatility+Post-Election" target="_blank">Quiver Quantitative — N. Olofsson, Nov 14 2024</a> · Price trajectory reconstructed from reported trading data. Index: pre-market open = 100.
+</div>
+
+<script>
+const labels = [
+  '9:30','10:00','10:15','10:45','11:15','11:45','12:15','12:45',
+  '1:15','2:00','2:45','3:30','4:00','AH 4:30','AH 5:00','AH 5:30'
+];
+const prices = [
+  100, 104.2, 105.9, 101.3, 94.8, 88.2, 83.5, 84.1,
+  87.4, 90.6, 93.2, 96.8, 99.0, 103.5, 107.8, 108.9
+];
+
+// Color segments: red during crash, green in afterhours
+const pointColors = prices.map((p,i) => {
+  if (i >= 13) return '#3A8A3A';
+  if (i >= 3 && i <= 6) return '#CC2828';
+  return '#EDE8DF';
+});
+
+const halts = [4, 7]; // indices of trading halts
+
+const ctx = document.getElementById('chart').getContext('2d');
+
+// Custom plugin: trading halt bands + after-hours shading
+const bandPlugin = {
+  id:'bands',
+  beforeDraw(chart){
+    const {ctx, chartArea:{left,right,top,bottom}, scales:{x,y}} = chart;
+    // Trading halt bands
+    halts.forEach(idx => {
+      const x1 = x.getPixelForValue(idx - 0.4);
+      const x2 = x.getPixelForValue(idx + 0.4);
+      ctx.fillStyle = 'rgba(204,40,40,0.10)';
+      ctx.fillRect(x1, top, x2-x1, bottom-top);
+      ctx.save();
+      ctx.font = '500 8px IBM Plex Mono, monospace';
+      ctx.fillStyle = '#CC2828';
+      ctx.letterSpacing = '0.1em';
+      ctx.textAlign = 'center';
+      ctx.fillText('HALT', (x1+x2)/2, top + 10);
+      ctx.restore();
+    });
+    // After-hours shading
+    const ahStart = x.getPixelForValue(12.6);
+    ctx.fillStyle = 'rgba(58,138,58,0.06)';
+    ctx.fillRect(ahStart, top, right - ahStart, bottom - top);
+    ctx.save();
+    ctx.font = '500 8px IBM Plex Mono, monospace';
+    ctx.fillStyle = '#3A8A3A';
+    ctx.letterSpacing = '0.08em';
+    ctx.textAlign = 'left';
+    ctx.fillText('AFTER-HOURS', ahStart + 6, top + 10);
+    ctx.restore();
+    // Reference line at 100
+    const y100 = y.getPixelForValue(100);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(237,232,223,0.15)';
+    ctx.setLineDash([4,4]);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(left, y100);
+    ctx.lineTo(right, y100);
+    ctx.stroke();
+    ctx.restore();
+  }
+};
+
+new Chart(ctx, {
+  type: 'line',
+  plugins: [bandPlugin],
+  data: {
+    labels,
+    datasets: [{
+      data: prices,
+      borderColor: function(context) {
+        const chart = context.chart;
+        const {ctx: c, chartArea} = chart;
+        if (!chartArea) return '#EDE8DF';
+        const gradient = c.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
+        gradient.addColorStop(0, '#EDE8DF');
+        gradient.addColorStop(0.18, '#EDE8DF');
+        gradient.addColorStop(0.22, '#CC2828');
+        gradient.addColorStop(0.46, '#CC2828');
+        gradient.addColorStop(0.50, '#EDE8DF');
+        gradient.addColorStop(0.80, '#EDE8DF');
+        gradient.addColorStop(0.82, '#3A8A3A');
+        gradient.addColorStop(1, '#3A8A3A');
+        return gradient;
+      },
+      borderWidth: 2,
+      fill: true,
+      backgroundColor: function(context) {
+        const chart = context.chart;
+        const {ctx: c, chartArea} = chart;
+        if (!chartArea) return 'transparent';
+        const g = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+        g.addColorStop(0, 'rgba(237,232,223,0.06)');
+        g.addColorStop(1, 'rgba(237,232,223,0)');
+        return g;
+      },
+      pointRadius: prices.map((p,i) => [0,3,4,0,0,0,2,0,0,0,0,0,3,0,0,4][i] || 0),
+      pointBackgroundColor: pointColors,
+      pointBorderColor: 'transparent',
+      tension: 0.35,
+    }]
+  },
+  options: {
+    responsive: true,
+    interaction: {mode:'index', intersect:false},
+    plugins: {
+      legend: {display:false},
+      tooltip: {
+        backgroundColor: '#1a1a1a',
+        borderColor: 'rgba(237,232,223,0.12)',
+        borderWidth: 1,
+        titleColor: '#9A9490',
+        bodyColor: '#EDE8DF',
+        titleFont: {family:'IBM Plex Mono', size:9},
+        bodyFont: {family:'IBM Plex Mono', size:11},
+        callbacks: {
+          label: ctx => {
+            const v = ctx.raw;
+            const diff = v - 100;
+            return `  ${v.toFixed(1)}  (${diff >= 0 ? '+' : ''}${diff.toFixed(1)} vs open)`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: {color:'rgba(237,232,223,0.05)', drawTicks:false},
+        ticks: {
+          color:'#625C58', font:{family:'IBM Plex Mono', size:9},
+          maxRotation:0, maxTicksLimit:8
+        },
+        border:{color:'rgba(237,232,223,0.08)'}
+      },
+      y: {
+        grid: {color:'rgba(237,232,223,0.05)', drawTicks:false},
+        ticks: {
+          color:'#625C58', font:{family:'IBM Plex Mono', size:9},
+          callback: v => v.toFixed(0)
+        },
+        border:{color:'rgba(237,232,223,0.08)'},
+        min: 78, max: 114
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
